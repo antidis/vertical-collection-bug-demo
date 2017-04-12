@@ -1,0 +1,7 @@
+{
+  "name": "embercom-core",
+  "dependencies": {
+    "ember": "~2.11.0",
+    "ember-cli-shims": "0.1.3"
+  }
+}

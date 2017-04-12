@@ -1,0 +1,73 @@
+<style>
+.ic-table .table {
+  margin-top: 0;
+  margin-bottom: 0;
+}
+
+.ic-table .table__body {
+  display: table;
+}
+
+.ic-table .table__wrapper {
+  display: block;
+  -webkit-overflow-scrolling: touch;
+  overflow-scrolling: touch;
+  position: relative;
+  background: #fff;
+}
+
+.ic-table .table thead,
+.ic-table .table tbody.table__body {
+  display: table;
+}
+
+.ic-table {
+  width: 100%;
+  overflow: hidden;
+}
+
+.layout__box {
+  flex: 0 0 auto;
+  min-width: 0;
+  min-height: 0;
+}
+
+.layout__box.o__flexes-to-1 {
+  flex: 1;
+}
+
+.layout__box.o__scrolls {
+  overflow: auto;
+  -webkit-overflow-scrolling: touch;
+  overflow-scrolling: touch;
+}
+
+.layout__box.o__has-rows {
+  display: flex;
+  flex-direction: column;
+}
+</style>
+<table class="table layout__box o__has-rows o__flexes-to-1">
+  <thead>
+    <tr>
+      {{#each columns as |column|}}
+        <th>{{column.label}}</th>
+      {{/each}}
+    </tr>
+  </thead>
+  <div class="table__wrapper layout__box o__flexes-to-1 o__scrolls">
+    {{#vertical-collection rows
+      containerSelector='.table__wrapper'
+      minHeight=39
+      tagName='tbody'
+      classNames='table__body'
+      lastReached=(perform loadNextPageTask)
+      as |row|
+    }}
+      {{ic-table-row
+        columns=columns
+        row=row
+      }}
+    {{/vertical-collection}}
+  </div>
+</table>

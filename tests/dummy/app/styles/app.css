@@ -1,0 +1,16 @@
+body {
+  font-family: "Helvetica Neue", Helvetica, Arial, sans-serif;
+  font-size: 14px;
+  line-height: 20px;
+  color: #37474F;
+  -webkit-font-smoothing: antialiased;
+  position: relative;
+  background-color: #fff;
+  padding: 0;
+}
+
+html, body {
+  margin: 20px;
+}
+
+.active { color: darkgreen; font-weight: bold; }
